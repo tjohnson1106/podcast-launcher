@@ -1,19 +1,19 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import "react-native-gesture-handler";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { UtilityThemeProvider } from "react-native-design-utility";
 
-export default function App() {
+import { theme } from "./src/constants/theme";
+import MainStackNavigator from "./src/navigators/MainStackNavigator";
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    <UtilityThemeProvider theme={theme}>
+      <NavigationContainer>
+        <MainStackNavigator />
+      </NavigationContainer>
+    </UtilityThemeProvider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
