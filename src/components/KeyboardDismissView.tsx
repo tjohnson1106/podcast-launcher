@@ -1,6 +1,10 @@
 import React, { PropsWithChildren } from "react";
-import { ScrollView, Keyboard } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import {
+  ScrollView,
+  Keyboard,
+  StyleSheet,
+  TouchableOpacity
+} from "react-native";
 
 interface Props {
   withScrollView?: boolean;
@@ -11,7 +15,10 @@ const KeyboardDismissView: React.FC<Props> = (
 ) => {
   if (props.withScrollView) {
     return (
-      <ScrollView keyboardShouldPersistTaps="never">
+      <ScrollView
+        keyboardShouldPersistTaps="never"
+        contentContainerStyle={s.container}
+      >
         {props.children}
       </ScrollView>
     );
