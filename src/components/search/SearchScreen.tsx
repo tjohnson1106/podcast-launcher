@@ -43,16 +43,20 @@ const SearchScreen = () => {
             paddingHorizontal: theme.space.sm,
             fontSize: theme.text.size.md
           }}
+          onChangeText={setTerm}
+          autoCorrect={false}
+          onSubmitEditing={onSearch}
+          value={term}
         />
       </Box>
 
-      <FlatList
+      <FlatList<searchQuery_search>
         keyboardShouldPersistTaps="never"
         style={{
           minHeight: "100%"
         }}
-        data={[{ id: 1 }, { id: 2 }]}
-        renderItem={() => (
+        data={data?.search ?? []}
+        renderItem={({ item }) => (
           <Box h={90} dir="row" align="center">
             <Box h={70} w={70} bg="blueLight" radius={10} mr={10} />
             <Box>
