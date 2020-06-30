@@ -5,14 +5,19 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "codegen": "apollo service:download --endpoint=https://frozen-river-77426.herokuapp.com/query && apollo client:codegen src/types/graphql.ts --includes='src/**/*.ts' --localSchemaFile=schema.json --outputFlat --target=typescript"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
     "@react-native-community/masked-view": "0.1.6",
     "@react-navigation/bottom-tabs": "^5.6.1",
     "@react-navigation/native": "^5.5.1",
     "@react-navigation/stack": "^5.5.1",
+    "apollo-boost": "^0.4.9",
     "expo": "~37.0.3",
+    "graphql": "^15.1.0",
+    "graphql-config": "^3.0.2",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
@@ -29,6 +34,17 @@
     "@types/react-native": "~0.61.17",
     "babel-preset-expo": "~8.1.0",
     "typescript": "~3.8.3"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "private": true
 }
