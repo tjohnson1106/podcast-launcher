@@ -58,19 +58,31 @@ const SearchScreen = () => {
         data={data?.search ?? []}
         renderItem={({ item }) => (
           <Box h={90} dir="row" align="center">
-            <Box h={70} w={70} bg="blueLight" radius={10} mr={10} />
+            <Box h={70} w={70} bg="blueLight" radius={10} mr={10}>
+              {item.thumbnail && (
+                <Image
+                  source={{
+                    uri: item.thumbnail
+                  }}
+                  style={{
+                    flex: 1,
+                    borderRadius: 10
+                  }}
+                />
+              )}
+            </Box>
             <Box>
-              <Text bold>Podcast</Text>
+              <Text bold>{item.podcastName}</Text>
               <Text size="xs" color="grey">
-                Subtitle
+                {item.artist}
               </Text>
               <Text size="xs" color="blueLight">
-                275 Episodes
+                {item.episodesCount} Episodes
               </Text>
             </Box>
           </Box>
         )}
-        keyExtractor={(item) => String(item.id)}
+        keyExtractor={(item) => String(item.podcastName)}
       />
     </Box>
   );
